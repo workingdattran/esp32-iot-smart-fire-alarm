@@ -13,33 +13,42 @@ An ESP32-based smart fire alarm and smoke detection system with real-time alerts
 * **Fail-safe Operation:** Works offline for local alarm even if Wi-Fi connection is lost.
 
 ---
+## 📸 Demo & System Preview
 
-## 🛠️ Hardware Requirements
+<p align="center">
+  <img src="assets/hardware_setup.jpg" width="45%" alt="Hardware Setup" />
+  <img src="assets/blynk_dashboard.jpg" width="45%" alt="Blynk IoT Dashboard" />
+</p>
 
-* **Microcontroller:** ESP32 Development Board
-* **Sensors:**
-  * Flame Sensor (IR Flame Detection)
-  * MQ-2 / MQ-135 Gas Sensor (Smoke / Flammable Gas Detection)
-  * DHT11 / DHT22 (Temperature & Humidity Sensor)
-* **Outputs & Display:**
-  * Active Buzzer (5V / 3.3V)
-  * 16x2 / 20x4 I2C LCD Display (with PCF8574 adapter)
-* **Others:** Breadboard, Jumper wires, 5V Micro-USB / Type-C Power Supply.
+* **Hardware in Action:** Real-time sensor readout displayed on the 16x2 I2C LCD (`Temperature`, `Gas PPM`, and status `AN TOAN`).
+* **Mobile Monitoring:** Live telemetry charts and alert indicators synchronized on the mobile dashboard.
 
 ---
 
-## 📌 Pinout / Wiring Diagram
+## 🛠️ Hardware Requirements
 
-| Component / Module | ESP32 GPIO Pin | Type / Interface | Description / Note |
-| :--- | :--- | :--- | :--- |
-| **Flame Sensor (DO)** | `GPIO 3` | Digital Input | Detects infrared flame radiation |
-| **Gas Sensor (DO / AO)** | `GPIO 8` | Input | Detects gas leak / smoke density |
-| **DHT Sensor (Data)** | `GPIO 9` | Digital I/O | Reads ambient temperature & humidity |
-| **Active Buzzer (+)** | `GPIO 11` | Digital Output | Triggers audio alarm on emergency |
-| **I2C LCD (SDA)** | `GPIO 4` | I2C Data | Data line for display |
-| **I2C LCD (SCL)** | `GPIO 5` | I2C Clock | Clock line for display |
-| **Power Supply** | `VCC / GND` | 5V / 3.3V & GND | Common power rail |
+* **Microcontroller:** ESP32-S3 DevKit (WROOM / Camera-enabled version)
+* **Sensors:**
+  * Flame Sensor (Infrared detection)
+  * MQ-2 Gas / Smoke Sensor
+  * DHT11 Temperature & Humidity Sensor
+* **Outputs & Indicators:**
+  * Active Buzzer
+  * 1602 LCD with PCF8574 I2C Adapter
+* **Accessories:** Breadboard, Jumper wires, USB-C Data Cable.
 
+---
+
+## 📱 IoT Cloud Dashboard (Blynk)
+
+The system syncs telemetry data continuously to the mobile app:
+
+* **Current Temperature Gauge:** Displays real-time temperature (°C).
+* **Flame Status Indicator:** Real-time visual indicator for fire presence (`Có lửa / Không`).
+* **Historical Data Streams:**
+  * **Gas Concentration Chart (`NỒNG ĐỘ KHÍ GA`):** Live plot tracking flammable gas & smoke spikes.
+  * **Temperature Chart (`ĐỒ THỊ NHIỆT ĐỘ`):** Continuous graph logging temperature fluctuations.
+* **On-device LCD Feed:** Displays compact metrics (`T: [Temp]C G: [Gas]` and system safety status).
 ---
 
 ## 🚀 Getting Started
